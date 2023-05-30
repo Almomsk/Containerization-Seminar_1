@@ -17,7 +17,7 @@
 ```
 sudo unshare -pf -n --mount-proc bash
 ```
-![sudo unshare -pf -n --mount-proc bash](19-21-02.png)
+![sudo unshare -pf -n --mount-proc bash]([19-21-02.png](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/19-21-02.png))
 
 
 * В параллельном терминале смотрим, что произошло (наглядно):
