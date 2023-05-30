@@ -24,13 +24,13 @@ sudo unshare -pf -n --mount-proc bash
 ```
 ps -afx
 ```
-![ps -afx](19-23-13.png)
+![ps -afx](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/19-23-13.png)
 
 Наблюдаем несколько родительских процессов, которые породили одинаковые процессы Bash. Заметим, что PID у нового процесса 4400.
-![ps -afx](19-22-19.png)
+![ps -afx](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/19-22-19.png)
 
 Для проверки и наглядности смотрим той же командой ps -afx в изолированном терминале
-![ps -afx](19-23-48.png)
+![ps -afx](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/19-23-48.png)
 Здесь мы сожем видеть, что изолированная оболчка видит всего два процесса (и то, второй процесс сразу же, после выполнения команды, исчезнет). При этом PID процессов начинается с 1.
 
 
@@ -38,12 +38,12 @@ ps -afx
 ```
 ping ya.ru
 ```
- ![ps -afx](19-27-21.png)
+ ![ps -afx](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/19-27-21.png)
  Наблюдаем, что пинг до указанного сайта не может быть осуществлен, так как сеть в этом пронстранстве имен имеется только локальная, т.е. localhost.
 
 
 А теперь, ту же команду запустим из параллельного терминала (котоый не изолирован).
-![ps -afx](19-27-46.png)
+![ps -afx](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/19-27-46.png)
 Видим, что пакеты до сайта уходят нормально и ответ от сервера принимается.
 
 
@@ -51,7 +51,7 @@ ping ya.ru
 ```
 hostname
 ```
-![ps -afx](20-00-38.png)
+![ps -afx](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/20-00-38.png)
 Как мы можем заметить - хоcт и там и там одинаков. А теперь, в изолированном терминале выполняем команду:
 ```
 sudo unshare -u bash
@@ -64,7 +64,7 @@ sudo unshare -u bash
 hostname geekbrains
 ```
 Эта команда никак не затронула хост основной системы. Можем проверить это, выполнив hostname в первом терминале и увидев, что имя хоста там не изменилось.
-![ps -afx](20-05-01.png)
+![ps -afx](https://github.com/Almomsk/Containerization-Seminar_1/blob/main/Source/20-05-01.png)
 
 
 Этими манипуляциями мы доказали, что научились запускать процессы в разных namespace с возможностью опционально изолировать нужные нам направления.
